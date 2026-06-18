@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FleetOps — Daiberia</title>
+  <meta name="description" content="Multi-tenant fleet management SaaS platform built on AKS with GitOps, Terraform, and Microsoft Sentinel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0a0c0f;
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', monospace;
+      min-height: 100vh;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 0.5px solid #1e2530;
+      position: sticky;
+      top: 0;
+      background: #0a0c0f;
+      z-index: 10;
+    }
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 500;
+      color: #e2e8f0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-logo span { color: #3b82f6; }
+    .nav-link {
+      font-size: 13px;
+      color: #64748b;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-link:hover { color: #e2e8f0; }
+
+    .hero {
+      padding: 5rem 2rem 3.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3b82f6;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #f1f5f9;
+      margin-bottom: 1.25rem;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 em {
+      color: #3b82f6;
+      font-style: normal;
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: #94a3b8;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-family: 'Inter', sans-serif;
+      max-width: 520px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: #3b82f6;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #2563eb; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: transparent;
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      border: 0.5px solid #1e2d3d;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-secondary:hover { color: #e2e8f0; border-color: #3b82f6; }
+
+    .terminal {
+      max-width: 720px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+    }
+    .term-window {
+      background: #0d1117;
+      border: 0.5px solid #1e2530;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .term-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: #161b22;
+      border-bottom: 0.5px solid #1e2530;
+    }
+    .term-dot { width: 10px; height: 10px; border-radius: 50%; background: #3b3b3b; }
+    .term-title {
+      font-size: 11px;
+      color: #464f5b;
+      margin-left: 6px;
+    }
+    .term-body {
+      padding: 1.25rem 1.5rem;
+      font-size: 12px;
+      line-height: 1.9;
+      color: #64748b;
+    }
+    .term-body .prompt { color: #3b82f6; }
+    .term-body .cmd { color: #94a3b8; }
+    .term-body .ok { color: #22c55e; }
+    .term-body .muted { color: #1e2530; }
+    .term-body .hl { color: #f1f5f9; }
+
+    .section {
+      max-width: 720px;
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+    }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #374151;
+      margin-bottom: 1.5rem;
+      border-bottom: 0.5px solid #1e2530;
+      padding-bottom: 0.75rem;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+    }
+    .stack-item {
+      background: #0d1117;
+      border: 0.5px solid #1e2530;
+      border-radius: 6px;
+      padding: 0.875rem 1rem;
+    }
+    .stack-layer {
+      font-size: 10px;
+      color: #374151;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .stack-name { font-size: 13px; color: #94a3b8; font-weight: 500; }
+    .stack-name.accent { color: #3b82f6; }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .metric-card {
+      background: #0d1117;
+      border: 0.5px solid #1e2530;
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    .metric-val {
+      font-size: 22px;
+      font-weight: 500;
+      color: #f1f5f9;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .metric-val span { color: #3b82f6; font-size: 14px; }
+    .metric-label {
+      font-size: 11px;
+      color: #374151;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .flow { display: flex; flex-direction: column; }
+    .flow-step { display: flex; gap: 1rem; align-items: flex-start; }
+    .flow-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 20px;
+    }
+    .flow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0a0c0f;
+      border: 1.5px solid #3b82f6;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .flow-connector {
+      width: 1px;
+      flex: 1;
+      background: #1e2530;
+      min-height: 28px;
+      margin: 2px 0;
+    }
+    .flow-content { padding-bottom: 1.5rem; flex: 1; }
+    .flow-title {
+      font-size: 13px;
+      color: #e2e8f0;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+    .flow-desc { font-size: 12px; color: #464f5b; line-height: 1.6; }
+
+    .footer {
+      max-width: 720px;
+      margin: 4rem auto 0;
+      padding: 1.5rem 2rem 3rem;
+      border-top: 0.5px solid #1e2530;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-left { font-size: 12px; color: #374151; }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-link {
+      font-size: 12px;
+      color: #374151;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-link:hover { color: #3b82f6; }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 28px; }
+      .metrics-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">dai<span>beria</span></a>
+    <a href="https://github.com/daiberia/fleetops" class="nav-link" target="_blank" rel="noopener">github →</a>
+  </nav>
+
+  <div class="hero">
+    <div class="eyebrow">// product — fleetops</div>
+    <h1>Fleet management<br>built for <em>production</em></h1>
+    <p class="hero-sub">
+      Multi-tenant SaaS platform for logistics companies. Real-time telemetry, automated alerts, and audit-ready logs — running on AKS with GitOps, end-to-end TLS, and Microsoft Sentinel.
+    </p>
+    <div class="cta-row">
+      <a href="https://github.com/daiberia/fleetops" class="btn-primary" target="_blank" rel="noopener">
+        <i class="ti ti-brand-github" aria-hidden="true"></i> view code
+      </a>
+      <a href="https://github.com/daiberia/fleetops" class="btn-secondary" target="_blank" rel="noopener">
+        <i class="ti ti-player-play" aria-hidden="true"></i> watch demo
+      </a>
+    </div>
+  </div>
+
+  <div class="terminal">
+    <div class="term-window">
+      <div class="term-bar">
+        <div class="term-dot"></div>
+        <div class="term-dot"></div>
+        <div class="term-dot"></div>
+        <span class="term-title">github-actions — ci-fleet-api.yaml</span>
+      </div>
+      <div class="term-body">
+        <div><span class="prompt">▶</span> <span class="cmd">flake8 services/fleet-api/</span> <span class="ok">passed</span></div>
+        <div><span class="prompt">▶</span> <span class="cmd">pytest services/fleet-api/app/tests/</span> <span class="ok">3 passed in 0.42s</span></div>
+        <div><span class="prompt">▶</span> <span class="cmd">trivy image --exit-code 1 --severity CRITICAL</span> <span class="ok">0 vulnerabilities</span></div>
+        <div><span class="prompt">▶</span> <span class="cmd">az acr build --image fleet-api:a3f9c21</span> <span class="ok">pushed</span></div>
+        <div><span class="prompt">▶</span> <span class="cmd">sed values.yaml → tag: a3f9c21 → push gitops</span> <span class="ok">done</span></div>
+        <div class="muted">─────────────────────────────────────────────</div>
+        <div><span class="prompt">▶</span> <span class="hl">argocd</span> <span class="cmd">detected change in fleetops-gitops</span></div>
+        <div><span class="prompt">▶</span> <span class="cmd">helm template → kubectl apply</span> <span class="ok">synced · healthy</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">// stack</div>
+    <div class="stack-grid">
+      <div class="stack-item">
+        <div class="stack-layer">orchestration</div>
+        <div class="stack-name accent">AKS</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-layer">iac</div>
+        <div class="stack-name accent">Terraform</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-layer">gitops / cd</div>
+        <div class="stack-name accent">ArgoCD</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-layer">api</div>
+        <div class="stack-name">FastAPI</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-layer">secrets</div>
+        <div class="stack-name">Key Vault</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-layer">secops</div>
+        <div class="stack-name">Sentinel</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-layer">metrics</div>
+        <div class="stack-name">Prometheus</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-layer">ci / sast</div>
+        <div class="stack-name">Actions + Trivy</div>
+      </div>
+      <div class="stack-item">
+        <div class="stack-layer">tls</div>
+        <div class="stack-name">cert-manager</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">// by the numbers</div>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-val">0<span>s</span></div>
+        <div class="metric-label">secrets in YAML</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">3</div>
+        <div class="metric-label">KQL detection rules</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">100<span>%</span></div>
+        <div class="metric-label">IaC — Terraform</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">// deployment pipeline</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot"></div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <div class="flow-title">git push</div>
+          <div class="flow-desc">developer pushes to daiberia/fleetops</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot"></div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <div class="flow-title">ci — lint · test · sast</div>
+          <div class="flow-desc">flake8 + pytest + trivy — critical CVEs block the build</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot"></div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <div class="flow-title">build + push acr</div>
+          <div class="flow-desc">image tagged with commit sha, pushed to azure container registry</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot"></div>
+          <div class="flow-connector"></div>
+        </div>
+        <div class="flow-content">
+          <div class="flow-title">gitops update</div>
+          <div class="flow-desc">ci updates values.yaml in fleetops-gitops — argocd detects the change</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line">
+          <div class="flow-dot"></div>
+        </div>
+        <div class="flow-content">
+          <div class="flow-title">argocd → aks</div>
+          <div class="flow-desc">helm template rendered, kubectl apply, rolling update — auto-heal on drift</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-left">© 2025 daiberia</div>
+    <div class="footer-links">
+      <a href="https://github.com/daiberia/fleetops" class="footer-link" target="_blank" rel="noopener">github</a>
+      <a href="https://github.com/daiberia/fleetops/blob/main/docs/architecture.md" class="footer-link" target="_blank" rel="noopener">architecture</a>
+      <a href="https://linkedin.com/company/daiberia" class="footer-link" target="_blank" rel="noopener">linkedin</a>
+    </div>
+  </footer>
+
+</body>
+</html>
