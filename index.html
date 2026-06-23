@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FleetOps — Daiberia</title>
-  <meta name="description" content="Multi-tenant fleet management SaaS platform built on AKS with GitOps, Terraform, and Microsoft Sentinel." />
+  <title>Daiberia — Cloud & DevOps Engineering</title>
+  <meta name="description" content="Daiberia designs and operates cloud-native infrastructure. Terraform, Kubernetes, GitOps — built for production from day one." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,7 +51,7 @@
 
     /* HERO */
     .hero {
-      padding: 5rem 2rem 3.5rem;
+      padding: 6rem 2rem 4rem;
       max-width: 720px;
       margin: 0 auto;
     }
@@ -60,121 +60,57 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #3b82f6;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
     .hero h1 {
-      font-size: 38px;
-      font-weight: 500;
-      line-height: 1.2;
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 1.15;
       color: #f1f5f9;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
       font-family: 'Inter', sans-serif;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
     .hero h1 em {
       color: #3b82f6;
       font-style: normal;
+      font-weight: 500;
     }
     .hero-sub {
       font-size: 15px;
-      color: #94a3b8;
-      line-height: 1.7;
-      margin-bottom: 2rem;
+      color: #64748b;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
       font-family: 'Inter', sans-serif;
-      max-width: 520px;
+      max-width: 480px;
     }
     .cta-row {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
     }
-    .btn-primary {
+    .btn-ghost {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
-      background: #3b82f6;
-      color: #fff;
+      padding: 10px 0;
+      color: #3b82f6;
       font-size: 13px;
       font-weight: 500;
-      border-radius: 6px;
       text-decoration: none;
       font-family: 'JetBrains Mono', monospace;
-      transition: background 0.15s;
-    }
-    .btn-primary:hover { background: #2563eb; }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: transparent;
-      color: #94a3b8;
-      font-size: 13px;
-      font-weight: 500;
-      border-radius: 6px;
-      text-decoration: none;
-      font-family: 'JetBrains Mono', monospace;
-      border: 0.5px solid #1e2d3d;
+      border-bottom: 0.5px solid #3b82f6;
       transition: color 0.15s, border-color 0.15s;
     }
-    .btn-secondary:hover { color: #e2e8f0; border-color: #3b82f6; }
+    .btn-ghost:hover { color: #60a5fa; border-color: #60a5fa; }
 
-    /* VIDEO EMBED */
-    .video-section {
+    /* DIVIDER */
+    .divider {
       max-width: 720px;
-      margin: 3rem auto 0;
+      margin: 0 auto;
       padding: 0 2rem;
+      border-top: 0.5px solid #1e2530;
     }
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 0.5px solid #1e2530;
-      background: #0d1117;
-    }
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-    }
-
-    /* TERMINAL */
-    .terminal {
-      max-width: 720px;
-      margin: 3rem auto 0;
-      padding: 0 2rem;
-    }
-    .term-window {
-      background: #0d1117;
-      border: 0.5px solid #1e2530;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .term-bar {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 14px;
-      background: #161b22;
-      border-bottom: 0.5px solid #1e2530;
-    }
-    .term-dot { width: 10px; height: 10px; border-radius: 50%; background: #3b3b3b; }
-    .term-title { font-size: 11px; color: #464f5b; margin-left: 6px; }
-    .term-body {
-      padding: 1.25rem 1.5rem;
-      font-size: 12px;
-      line-height: 1.9;
-      color: #64748b;
-    }
-    .term-body .prompt { color: #3b82f6; }
-    .term-body .cmd { color: #94a3b8; }
-    .term-body .ok { color: #22c55e; }
-    .term-body .muted { color: #1e2530; }
-    .term-body .hl { color: #f1f5f9; }
 
     /* SECTIONS */
     .section {
@@ -190,6 +126,166 @@
       margin-bottom: 1.5rem;
       border-bottom: 0.5px solid #1e2530;
       padding-bottom: 0.75rem;
+    }
+
+    /* WHAT WE DO */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 8px;
+    }
+    .service-card {
+      background: #0d1117;
+      border: 0.5px solid #1e2530;
+      border-radius: 6px;
+      padding: 1.25rem;
+    }
+    .service-icon {
+      font-size: 18px;
+      color: #3b82f6;
+      margin-bottom: 0.75rem;
+    }
+    .service-title {
+      font-size: 13px;
+      color: #f1f5f9;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .service-desc {
+      font-size: 12px;
+      color: #464f5b;
+      line-height: 1.65;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* WORK / FLEETOPS */
+    .work-card {
+      background: #0d1117;
+      border: 0.5px solid #1e2530;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .work-header {
+      padding: 1.5rem;
+      border-bottom: 0.5px solid #1e2530;
+    }
+    .work-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .work-name {
+      font-size: 16px;
+      color: #f1f5f9;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+    }
+    .work-badge {
+      font-size: 10px;
+      color: #22c55e;
+      border: 0.5px solid #166534;
+      border-radius: 4px;
+      padding: 2px 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .work-desc {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.65;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 1rem;
+      max-width: 520px;
+    }
+    .work-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.25rem;
+    }
+    .work-tag {
+      font-size: 11px;
+      color: #374151;
+      border: 0.5px solid #1e2530;
+      border-radius: 4px;
+      padding: 3px 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .work-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      background: #3b82f6;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #2563eb; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      background: transparent;
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      border: 0.5px solid #1e2d3d;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-secondary:hover { color: #e2e8f0; border-color: #3b82f6; }
+
+    /* VIDEO */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #060809;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* MORE PROJECTS */
+    .more-projects {
+      margin-top: 1rem;
+      padding: 1.25rem;
+      border: 0.5px dashed #1e2530;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .more-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #1e2530;
+      flex-shrink: 0;
+    }
+    .more-text {
+      font-size: 12px;
+      color: #374151;
     }
 
     /* STACK */
@@ -214,124 +310,10 @@
     .stack-name { font-size: 13px; color: #94a3b8; font-weight: 500; }
     .stack-name.accent { color: #3b82f6; }
 
-    /* METRICS */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-    .metric-card {
-      background: #0d1117;
-      border: 0.5px solid #1e2530;
-      border-radius: 6px;
-      padding: 1rem;
-    }
-    .metric-val {
-      font-size: 22px;
-      font-weight: 500;
-      color: #f1f5f9;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .metric-val span { color: #3b82f6; font-size: 14px; }
-    .metric-label {
-      font-size: 11px;
-      color: #374151;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    /* FLOW */
-    .flow { display: flex; flex-direction: column; }
-    .flow-step { display: flex; gap: 1rem; align-items: flex-start; }
-    .flow-line {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex-shrink: 0;
-      width: 20px;
-    }
-    .flow-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #0a0c0f;
-      border: 1.5px solid #3b82f6;
-      flex-shrink: 0;
-      margin-top: 4px;
-    }
-    .flow-connector {
-      width: 1px;
-      flex: 1;
-      background: #1e2530;
-      min-height: 28px;
-      margin: 2px 0;
-    }
-    .flow-content { padding-bottom: 1.5rem; flex: 1; }
-    .flow-title { font-size: 13px; color: #e2e8f0; font-weight: 500; margin-bottom: 2px; }
-    .flow-desc { font-size: 12px; color: #464f5b; line-height: 1.6; }
-
-    /* ABOUT */
-    .about-card {
-      background: #0d1117;
-      border: 0.5px solid #1e2530;
-      border-radius: 8px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .about-name {
-      font-size: 15px;
-      color: #f1f5f9;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
-    }
-    .about-role {
-      font-size: 12px;
-      color: #3b82f6;
-      margin-top: 2px;
-    }
-    .about-bio {
-      font-size: 13px;
-      color: #64748b;
-      line-height: 1.7;
-      font-family: 'Inter', sans-serif;
-    }
-    .about-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .about-tag {
-      font-size: 11px;
-      color: #374151;
-      border: 0.5px solid #1e2530;
-      border-radius: 4px;
-      padding: 3px 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .about-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .about-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: #64748b;
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .about-link:hover { color: #3b82f6; }
-
     /* FOOTER */
     .footer {
       max-width: 720px;
-      margin: 4rem auto 0;
+      margin: 5rem auto 0;
       padding: 1.5rem 2rem 3rem;
       border-top: 0.5px solid #1e2530;
       display: flex;
@@ -351,8 +333,8 @@
     .footer-link:hover { color: #3b82f6; }
 
     @media (max-width: 480px) {
-      .hero h1 { font-size: 28px; }
-      .metrics-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 34px; }
+      .services-grid { grid-template-columns: 1fr; }
       .nav-links { gap: 1rem; }
     }
   </style>
@@ -362,60 +344,93 @@
   <nav class="nav">
     <a href="/" class="nav-logo">dai<span>beria</span></a>
     <div class="nav-links">
-      <a href="https://www.youtube.com/@DaiberiaSpain" class="nav-link" target="_blank" rel="noopener">youtube →</a>
-      <a href="https://github.com/daiberia/fleetops" class="nav-link" target="_blank" rel="noopener">github →</a>
+      <a href="https://github.com/daiberia" class="nav-link" target="_blank" rel="noopener">github →</a>
+      <a href="https://linkedin.com/company/daiberia" class="nav-link" target="_blank" rel="noopener">linkedin →</a>
     </div>
   </nav>
 
+  <!-- HERO -->
   <div class="hero">
-    <div class="eyebrow">// product — fleetops</div>
-    <h1>Fleet management<br>built for <em>production</em></h1>
+    <div class="eyebrow">// cloud &amp; devops engineering</div>
+    <h1>Engineered to scale,<br><em>designed to last.</em></h1>
     <p class="hero-sub">
-      Multi-tenant SaaS platform for logistics companies. Real-time telemetry, automated alerts, and audit-ready logs — running on AKS with GitOps, end-to-end TLS, and Microsoft Sentinel.
+      Daiberia designs and operates cloud-native infrastructure for companies that need it done right. Terraform, Kubernetes, GitOps — built for production from day one.
     </p>
     <div class="cta-row">
-      <a href="https://www.youtube.com/watch?v=Fj0xop82S8Q" class="btn-primary" target="_blank" rel="noopener">
-        <i class="ti ti-player-play" aria-hidden="true"></i> watch demo
-      </a>
-      <a href="https://github.com/daiberia/fleetops" class="btn-secondary" target="_blank" rel="noopener">
-        <i class="ti ti-brand-github" aria-hidden="true"></i> view code
-      </a>
+      <a href="#work" class="btn-ghost">view our work ↓</a>
     </div>
   </div>
 
-  <!-- VIDEO EMBED -->
-  <div class="video-section">
-    <div class="video-wrapper">
-      <iframe
-        src="https://www.youtube.com/embed/Fj0xop82S8Q"
-        title="FleetOps — Production Fleet Management SaaS on Azure AKS"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-
-  <div class="terminal">
-    <div class="term-window">
-      <div class="term-bar">
-        <div class="term-dot"></div>
-        <div class="term-dot"></div>
-        <div class="term-dot"></div>
-        <span class="term-title">github-actions — ci-fleet-api.yaml</span>
+  <!-- WHAT WE DO -->
+  <div class="section">
+    <div class="section-label">// what we do</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-topology-star-3"></i></div>
+        <div class="service-title">Infrastructure as Code</div>
+        <div class="service-desc">Reproducible, auditable infrastructure on Azure. Custom Terraform modules, remote state, least-privilege RBAC — no manual clicks in production.</div>
       </div>
-      <div class="term-body">
-        <div><span class="prompt">▶</span> <span class="cmd">flake8 services/fleet-api/</span> <span class="ok">passed</span></div>
-        <div><span class="prompt">▶</span> <span class="cmd">pytest services/fleet-api/app/tests/</span> <span class="ok">3 passed in 0.42s</span></div>
-        <div><span class="prompt">▶</span> <span class="cmd">trivy image --exit-code 1 --severity CRITICAL</span> <span class="ok">0 vulnerabilities</span></div>
-        <div><span class="prompt">▶</span> <span class="cmd">az acr build --image fleet-api:a3f9c21</span> <span class="ok">pushed</span></div>
-        <div><span class="prompt">▶</span> <span class="cmd">sed values.yaml → tag: a3f9c21 → push gitops</span> <span class="ok">done</span></div>
-        <div class="muted">─────────────────────────────────────────────</div>
-        <div><span class="prompt">▶</span> <span class="hl">argocd</span> <span class="cmd">detected change in fleetops-gitops</span></div>
-        <div><span class="prompt">▶</span> <span class="cmd">helm template → kubectl apply</span> <span class="ok">synced · healthy</span></div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-hexagons"></i></div>
+        <div class="service-title">Container Orchestration</div>
+        <div class="service-desc">AKS clusters provisioned from scratch, GitOps delivery with ArgoCD, Helm packaging, auto-heal on drift. CI/CD pipelines that ship to production without human intervention.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-shield-check"></i></div>
+        <div class="service-title">SecOps &amp; Observability</div>
+        <div class="service-desc">Secrets in Key Vault, never in YAML. Logs in Sentinel. Metrics in Prometheus. KQL detection rules for threats that matter: brute force, privilege escalation, interactive exec in prod.</div>
       </div>
     </div>
   </div>
 
+  <!-- WORK -->
+  <div class="section" id="work">
+    <div class="section-label">// work</div>
+    <div class="work-card">
+      <div class="work-header">
+        <div class="work-meta">
+          <span class="work-name">FleetOps</span>
+          <span class="work-badge">live</span>
+        </div>
+        <p class="work-desc">
+          Multi-tenant fleet management SaaS for logistics companies. Real-time GPS telemetry, automated alerts, and audit-ready logs — running on AKS with end-to-end GitOps, Azure Key Vault secrets management, and Microsoft Sentinel.
+        </p>
+        <div class="work-tags">
+          <span class="work-tag">AKS</span>
+          <span class="work-tag">Terraform</span>
+          <span class="work-tag">ArgoCD</span>
+          <span class="work-tag">FastAPI</span>
+          <span class="work-tag">Key Vault</span>
+          <span class="work-tag">Sentinel</span>
+          <span class="work-tag">Prometheus</span>
+          <span class="work-tag">GitHub Actions</span>
+        </div>
+        <div class="work-actions">
+          <a href="https://www.youtube.com/watch?v=Fj0xop82S8Q" class="btn-primary" target="_blank" rel="noopener">
+            <i class="ti ti-player-play" aria-hidden="true"></i> watch demo
+          </a>
+          <a href="https://github.com/daiberia/fleetops" class="btn-secondary" target="_blank" rel="noopener">
+            <i class="ti ti-brand-github" aria-hidden="true"></i> view code
+          </a>
+        </div>
+      </div>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/Fj0xop82S8Q"
+          title="FleetOps — Production Fleet Management SaaS on Azure AKS"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="more-projects">
+      <div class="more-dot"></div>
+      <span class="more-text">More projects in progress — follow <a href="https://github.com/daiberia" style="color:#374151; text-decoration:none; border-bottom:0.5px solid #374151;" target="_blank" rel="noopener">github.com/daiberia</a> for updates.</span>
+    </div>
+  </div>
+
+  <!-- STACK -->
   <div class="section">
     <div class="section-label">// stack</div>
     <div class="stack-grid">
@@ -458,119 +473,11 @@
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-label">// by the numbers</div>
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-val">0</div>
-        <div class="metric-label">secrets in YAML</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-val">3</div>
-        <div class="metric-label">KQL detection rules</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-val">100<span>%</span></div>
-        <div class="metric-label">IaC — Terraform</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">// deployment pipeline</div>
-    <div class="flow">
-      <div class="flow-step">
-        <div class="flow-line">
-          <div class="flow-dot"></div>
-          <div class="flow-connector"></div>
-        </div>
-        <div class="flow-content">
-          <div class="flow-title">git push</div>
-          <div class="flow-desc">developer pushes to daiberia/fleetops</div>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-line">
-          <div class="flow-dot"></div>
-          <div class="flow-connector"></div>
-        </div>
-        <div class="flow-content">
-          <div class="flow-title">ci — lint · test · sast</div>
-          <div class="flow-desc">flake8 + pytest + trivy — critical CVEs block the build</div>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-line">
-          <div class="flow-dot"></div>
-          <div class="flow-connector"></div>
-        </div>
-        <div class="flow-content">
-          <div class="flow-title">build + push acr</div>
-          <div class="flow-desc">image tagged with commit sha, pushed to azure container registry</div>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-line">
-          <div class="flow-dot"></div>
-          <div class="flow-connector"></div>
-        </div>
-        <div class="flow-content">
-          <div class="flow-title">gitops update</div>
-          <div class="flow-desc">ci updates values.yaml in fleetops-gitops — argocd detects the change</div>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-line">
-          <div class="flow-dot"></div>
-        </div>
-        <div class="flow-content">
-          <div class="flow-title">argocd → aks</div>
-          <div class="flow-desc">helm template rendered, kubectl apply, rolling update — auto-heal on drift</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <div class="section">
-    <div class="section-label">// built by</div>
-    <div class="about-card">
-      <div>
-        <div class="about-name">Daniel Teruel</div>
-        <div class="about-role">Cloud &amp; DevOps Engineer · Daiberia</div>
-      </div>
-      <div class="about-bio">
-        AZ-104 certified. ASIR + cybersecurity specialisation. Building cloud-native infrastructure on Azure — IaC with Terraform, container orchestration on AKS, GitOps with ArgoCD, and SecOps with Microsoft Sentinel. Open to remote Cloud/DevOps roles in Europe.
-      </div>
-      <div class="about-tags">
-        <span class="about-tag">AZ-104</span>
-        <span class="about-tag">Azure</span>
-        <span class="about-tag">Terraform</span>
-        <span class="about-tag">Kubernetes</span>
-        <span class="about-tag">ArgoCD</span>
-        <span class="about-tag">Python</span>
-        <span class="about-tag">Sentinel</span>
-        <span class="about-tag">Remote — Europe</span>
-      </div>
-      <div class="about-links">
-        <a href="https://linkedin.com/in/dteruelt/" class="about-link" target="_blank" rel="noopener">
-          <i class="ti ti-brand-linkedin" aria-hidden="true"></i> linkedin.com/in/dteruelt
-        </a>
-        <a href="https://github.com/daiberia" class="about-link" target="_blank" rel="noopener">
-          <i class="ti ti-brand-github" aria-hidden="true"></i> github.com/daiberia
-        </a>
-        <a href="https://www.youtube.com/@DaiberiaSpain" class="about-link" target="_blank" rel="noopener">
-          <i class="ti ti-brand-youtube" aria-hidden="true"></i> youtube/@DaiberiaSpain
-        </a>
-      </div>
-    </div>
-  </div>
-
   <footer class="footer">
     <div class="footer-left">© 2026 daiberia</div>
     <div class="footer-links">
-      <a href="https://github.com/daiberia/fleetops" class="footer-link" target="_blank" rel="noopener">github</a>
-      <a href="https://github.com/daiberia/fleetops/blob/main/docs/architecture.md" class="footer-link" target="_blank" rel="noopener">architecture</a>
+      <a href="https://github.com/daiberia" class="footer-link" target="_blank" rel="noopener">github</a>
+      <a href="https://www.youtube.com/@DaiberiaSpain" class="footer-link" target="_blank" rel="noopener">youtube</a>
       <a href="https://linkedin.com/company/daiberia" class="footer-link" target="_blank" rel="noopener">linkedin</a>
     </div>
   </footer>
