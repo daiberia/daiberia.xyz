@@ -19,6 +19,7 @@
       min-height: 100vh;
     }
 
+    /* NAV */
     .nav {
       display: flex;
       justify-content: space-between;
@@ -39,6 +40,7 @@
       text-decoration: none;
     }
     .nav-logo span { color: #3b82f6; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     .nav-link {
       font-size: 13px;
       color: #64748b;
@@ -47,6 +49,7 @@
     }
     .nav-link:hover { color: #e2e8f0; }
 
+    /* HERO */
     .hero {
       padding: 5rem 2rem 3.5rem;
       max-width: 720px;
@@ -117,6 +120,29 @@
     }
     .btn-secondary:hover { color: #e2e8f0; border-color: #3b82f6; }
 
+    /* VIDEO EMBED */
+    .video-section {
+      max-width: 720px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 0.5px solid #1e2530;
+      background: #0d1117;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* TERMINAL */
     .terminal {
       max-width: 720px;
       margin: 3rem auto 0;
@@ -137,11 +163,7 @@
       border-bottom: 0.5px solid #1e2530;
     }
     .term-dot { width: 10px; height: 10px; border-radius: 50%; background: #3b3b3b; }
-    .term-title {
-      font-size: 11px;
-      color: #464f5b;
-      margin-left: 6px;
-    }
+    .term-title { font-size: 11px; color: #464f5b; margin-left: 6px; }
     .term-body {
       padding: 1.25rem 1.5rem;
       font-size: 12px;
@@ -154,6 +176,7 @@
     .term-body .muted { color: #1e2530; }
     .term-body .hl { color: #f1f5f9; }
 
+    /* SECTIONS */
     .section {
       max-width: 720px;
       margin: 4rem auto 0;
@@ -169,6 +192,7 @@
       padding-bottom: 0.75rem;
     }
 
+    /* STACK */
     .stack-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -190,6 +214,7 @@
     .stack-name { font-size: 13px; color: #94a3b8; font-weight: 500; }
     .stack-name.accent { color: #3b82f6; }
 
+    /* METRICS */
     .metrics-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -216,6 +241,7 @@
       letter-spacing: 0.08em;
     }
 
+    /* FLOW */
     .flow { display: flex; flex-direction: column; }
     .flow-step { display: flex; gap: 1rem; align-items: flex-start; }
     .flow-line {
@@ -242,14 +268,67 @@
       margin: 2px 0;
     }
     .flow-content { padding-bottom: 1.5rem; flex: 1; }
-    .flow-title {
-      font-size: 13px;
-      color: #e2e8f0;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
+    .flow-title { font-size: 13px; color: #e2e8f0; font-weight: 500; margin-bottom: 2px; }
     .flow-desc { font-size: 12px; color: #464f5b; line-height: 1.6; }
 
+    /* ABOUT */
+    .about-card {
+      background: #0d1117;
+      border: 0.5px solid #1e2530;
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .about-name {
+      font-size: 15px;
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .about-role {
+      font-size: 12px;
+      color: #3b82f6;
+      margin-top: 2px;
+    }
+    .about-bio {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.7;
+      font-family: 'Inter', sans-serif;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .about-tag {
+      font-size: 11px;
+      color: #374151;
+      border: 0.5px solid #1e2530;
+      border-radius: 4px;
+      padding: 3px 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .about-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #64748b;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .about-link:hover { color: #3b82f6; }
+
+    /* FOOTER */
     .footer {
       max-width: 720px;
       margin: 4rem auto 0;
@@ -274,6 +353,7 @@
     @media (max-width: 480px) {
       .hero h1 { font-size: 28px; }
       .metrics-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; }
     }
   </style>
 </head>
@@ -281,7 +361,10 @@
 
   <nav class="nav">
     <a href="/" class="nav-logo">dai<span>beria</span></a>
-    <a href="https://github.com/daiberia/fleetops" class="nav-link" target="_blank" rel="noopener">github →</a>
+    <div class="nav-links">
+      <a href="https://www.youtube.com/@DaiberiaSpain" class="nav-link" target="_blank" rel="noopener">youtube →</a>
+      <a href="https://github.com/daiberia/fleetops" class="nav-link" target="_blank" rel="noopener">github →</a>
+    </div>
   </nav>
 
   <div class="hero">
@@ -291,12 +374,24 @@
       Multi-tenant SaaS platform for logistics companies. Real-time telemetry, automated alerts, and audit-ready logs — running on AKS with GitOps, end-to-end TLS, and Microsoft Sentinel.
     </p>
     <div class="cta-row">
-      <a href="https://github.com/daiberia/fleetops" class="btn-primary" target="_blank" rel="noopener">
-        <i class="ti ti-brand-github" aria-hidden="true"></i> view code
-      </a>
-      <a href="https://github.com/daiberia/fleetops" class="btn-secondary" target="_blank" rel="noopener">
+      <a href="https://www.youtube.com/watch?v=Fj0xop82S8Q" class="btn-primary" target="_blank" rel="noopener">
         <i class="ti ti-player-play" aria-hidden="true"></i> watch demo
       </a>
+      <a href="https://github.com/daiberia/fleetops" class="btn-secondary" target="_blank" rel="noopener">
+        <i class="ti ti-brand-github" aria-hidden="true"></i> view code
+      </a>
+    </div>
+  </div>
+
+  <!-- VIDEO EMBED -->
+  <div class="video-section">
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/Fj0xop82S8Q"
+        title="FleetOps — Production Fleet Management SaaS on Azure AKS"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 
@@ -367,7 +462,7 @@
     <div class="section-label">// by the numbers</div>
     <div class="metrics-grid">
       <div class="metric-card">
-        <div class="metric-val">0<span>s</span></div>
+        <div class="metric-val">0</div>
         <div class="metric-label">secrets in YAML</div>
       </div>
       <div class="metric-card">
@@ -436,8 +531,43 @@
     </div>
   </div>
 
+  <!-- ABOUT -->
+  <div class="section">
+    <div class="section-label">// built by</div>
+    <div class="about-card">
+      <div>
+        <div class="about-name">Daniel Teruel</div>
+        <div class="about-role">Cloud &amp; DevOps Engineer · Daiberia</div>
+      </div>
+      <div class="about-bio">
+        AZ-104 certified. ASIR + cybersecurity specialisation. Building cloud-native infrastructure on Azure — IaC with Terraform, container orchestration on AKS, GitOps with ArgoCD, and SecOps with Microsoft Sentinel. Open to remote Cloud/DevOps roles in Europe.
+      </div>
+      <div class="about-tags">
+        <span class="about-tag">AZ-104</span>
+        <span class="about-tag">Azure</span>
+        <span class="about-tag">Terraform</span>
+        <span class="about-tag">Kubernetes</span>
+        <span class="about-tag">ArgoCD</span>
+        <span class="about-tag">Python</span>
+        <span class="about-tag">Sentinel</span>
+        <span class="about-tag">Remote — Europe</span>
+      </div>
+      <div class="about-links">
+        <a href="https://linkedin.com/in/dteruelt/" class="about-link" target="_blank" rel="noopener">
+          <i class="ti ti-brand-linkedin" aria-hidden="true"></i> linkedin.com/in/dteruelt
+        </a>
+        <a href="https://github.com/daiberia" class="about-link" target="_blank" rel="noopener">
+          <i class="ti ti-brand-github" aria-hidden="true"></i> github.com/daiberia
+        </a>
+        <a href="https://www.youtube.com/@DaiberiaSpain" class="about-link" target="_blank" rel="noopener">
+          <i class="ti ti-brand-youtube" aria-hidden="true"></i> youtube/@DaiberiaSpain
+        </a>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
-    <div class="footer-left">© 2025 daiberia</div>
+    <div class="footer-left">© 2026 daiberia</div>
     <div class="footer-links">
       <a href="https://github.com/daiberia/fleetops" class="footer-link" target="_blank" rel="noopener">github</a>
       <a href="https://github.com/daiberia/fleetops/blob/main/docs/architecture.md" class="footer-link" target="_blank" rel="noopener">architecture</a>
